@@ -31,11 +31,8 @@ class SecondFragment : Fragment() {
 
         var db = TaskDatabaseHelper(this.context)
         val date = java.util.Calendar.getInstance()
-        arrayList = db.Tasks_ByDate(date[java.util.Calendar.DATE+1], date[java.util.Calendar.MONTH]) ?: ArrayList()
+        arrayList = db.Tasks_ByDate(date[java.util.Calendar.DATE+1], date[java.util.Calendar.MONTH])
         adapter = this.context?.let { MyAdapter(it, arrayList) }
         listView?.adapter = adapter
-    }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 }

@@ -79,7 +79,7 @@ class TaskDatabaseHelper(context: Context?) : SQLiteOpenHelper(context, DB_NAME,
         db.close()
     }
 
-    public  fun Tasks_ByDate(date: Int, month: Int): ArrayList<Task>{
+    fun Tasks_ByDate(date: Int, month: Int): ArrayList<Task>{
         val list_tasks = ArrayList<Task>()
         Tasks?.forEach {
             var date_split = it.cmp_day.split("/")

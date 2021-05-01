@@ -28,7 +28,7 @@ class Ad_new : AppCompatActivity() {
         actionBar!!.title = "Add new task"
         actionBar.setDisplayHomeAsUpEnabled(true)
         textview_date = findViewById( R.id.text_view_date_1)
-        val myFormat = "MM/dd/yyyy"
+        val myFormat = "dd/MM/yyyy"
         sdf = SimpleDateFormat(myFormat, Locale.ITALIAN)
 
         val dateSetListener = object : DatePickerDialog.OnDateSetListener {
@@ -70,7 +70,7 @@ class Ad_new : AppCompatActivity() {
             }
             var task = Task(0,
                     findViewById<EditText>(R.id.edit_task_name).text.toString(),
-                    sdf!!.format(cal.getTime()),
+                    sdf!!.format(cal.time),
                     cmp_date!!)
             val db = TaskDatabaseHelper(this)
             db.insert(task)
@@ -78,10 +78,10 @@ class Ad_new : AppCompatActivity() {
             if(findViewById<Switch>(R.id.googSwitch).isChecked){
 
                 val intent = Intent(Intent.ACTION_EDIT)
-                intent.setType("vnd.android.cursor.item/event")
-                intent.putExtra(CalendarContract.Events.TITLE, task.title);
-                intent.putExtra(CalendarContract.Events.DESCRIPTION, "My To Do List :3");
-                intent.putExtra(CalendarContract.Events.ALL_DAY, true);
+                intent.type = "vnd.android.cursor.item/event"
+                intent.putExtra(CalendarContract.Events.TITLE, task.title)
+                intent.putExtra(CalendarContract.Events.DESCRIPTION, "My To Do List :3")
+                intent.putExtra(CalendarContract.Events.ALL_DAY, true)
                 val split = task.due.split("/")
                 val calDate = GregorianCalendar(split[2].toInt(), split[1].toInt(), split[0].toInt())
                 intent.putExtra(
@@ -92,7 +92,7 @@ class Ad_new : AppCompatActivity() {
                     CalendarContract.EXTRA_EVENT_END_TIME,
                     calDate.timeInMillis
                 )
-                intent.putExtra(CalendarContract.Events.ALL_DAY, true);
+                intent.putExtra(CalendarContract.Events.ALL_DAY, true)
                 startActivity(intent)
             }
 
@@ -102,7 +102,7 @@ class Ad_new : AppCompatActivity() {
 
 
     private fun updateDateInView() {
-        textview_date!!.setText("Due: ${sdf!!.format(cal.getTime())}")
+        textview_date!!.text = "Due: ${sdf!!.format(cal.time)}"
     }
 
 }

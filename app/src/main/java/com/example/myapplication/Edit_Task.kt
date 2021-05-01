@@ -104,10 +104,10 @@ class Edit_Task : AppCompatActivity() {
         findViewById<Button>(R.id.googSwitch).setOnClickListener {
             val task = read_task_from_UI()
             val intent = Intent(Intent.ACTION_EDIT)
-            intent.setType("vnd.android.cursor.item/event")
-            intent.putExtra(CalendarContract.Events.TITLE, task.title);
-            intent.putExtra(CalendarContract.Events.DESCRIPTION, "My To Do List :3");
-            intent.putExtra(CalendarContract.Events.ALL_DAY, true);
+            intent.type = "vnd.android.cursor.item/event"
+            intent.putExtra(CalendarContract.Events.TITLE, task.title)
+            intent.putExtra(CalendarContract.Events.DESCRIPTION, "My To Do List :3")
+            intent.putExtra(CalendarContract.Events.ALL_DAY, true)
             val split = task.due.split("/")
             val calDate = GregorianCalendar(split[2].toInt(), split[1].toInt(), split[0].toInt())
             intent.putExtra(
@@ -118,7 +118,7 @@ class Edit_Task : AppCompatActivity() {
                 CalendarContract.EXTRA_EVENT_END_TIME,
                 calDate.timeInMillis
             )
-            intent.putExtra(CalendarContract.Events.ALL_DAY, true);
+            intent.putExtra(CalendarContract.Events.ALL_DAY, true)
 
             startActivity(intent)
         }
@@ -140,12 +140,12 @@ class Edit_Task : AppCompatActivity() {
         }
         val task = Task(task_id!!,
             findViewById<EditText>(R.id.edit_task_name).text.toString(),
-            sdf!!.format(cal.getTime()),
+            sdf!!.format(cal.time),
             cmp_date!!)
         return task
     }
 
     private fun updateDateInView() {
-        textview_date!!.setText("Due: ${sdf!!.format(cal.getTime())}")
+        textview_date!!.text = "Due: ${sdf!!.format(cal.time)}"
     }
 }
