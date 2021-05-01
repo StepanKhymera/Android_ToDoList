@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="chip_icon_width">44</dimen>
+    <dimen name="chip_width">50dp</dimen>
+
+</resources>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ad_new">
+
+    <EditText
+        android:id="@+id/edit_task_name"
+        android:layout_width="271dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="52dp"
+        android:ellipsize="none"
+        android:ems="10"
+        android:hint="Title of the task"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="197dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="24dp"
+        app:checkedChip="@id/today"
+        app:chipSpacingHorizontal="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.327"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_task_name"
+        app:singleLine="false"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/today"
+            android:layout_width="@dimen/chip_width"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:checkedIcon="@drawable/ic_today_ch"
+            app:checkedIconEnabled="true"
+            app:checkedIconVisible="true"
+            app:chipBackgroundColor="@color/white"
+            app:chipIcon="@drawable/ic_today"
+            app:chipIconSize="44dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/tomorrow"
+            android:layout_width="@dimen/chip_width"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:checkedIcon="@drawable/ic_tomorrow_ch"
+            app:checkedIconEnabled="true"
+            app:checkedIconVisible="true"
+            app:chipBackgroundColor="@color/white"
+            app:chipIcon="@drawable/ic_tomorrow"
+            app:chipIconSize="44dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/all"
+            android:layout_width="@dimen/chip_width"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:checkedIcon="@drawable/ic_all_ch"
+            app:checkedIconEnabled="true"
+            app:checkedIconVisible="true"
+            app:chipBackgroundColor="@color/white"
+            app:chipIcon="@drawable/ic_all"
+            app:chipIconSize="44dp" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/text_view_date_1"
+        android:layout_width="193dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="24dp"
+        android:padding="20dp"
+        android:text="Due: --/--/----"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
+
+    <Switch
+        android:id="@+id/googSwitch"
+        android:layout_width="249dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="36dp"
+        android:text="Share to Google Calnedar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_date_1" />
+
+    <Button
+        android:id="@+id/add_new_butt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
